@@ -11,6 +11,7 @@ connect("mongodb://vcm-3584.vm.duke.edu:27017/heart_rate_app")
 
 
 @app.route('/api/heart_rate', methods=["POST"])
+def heart_rate:
     R = request.get_json()
     create_user(R["user_email"], R["user_age"], R["heart_rate"])
     return jsonify("done")
