@@ -27,10 +27,11 @@ def user_average_heart_rate(user_all_heart_rate):
     average_heart_rate = np.mean(user_all_heart_rate)
     return average_heart_rate    
 
-def user_heart_rate_time(email):
-    user = User.object.raw({"_id": email}).first()
-    user_time = user.heart_rate_times
-    return user_time
-
-def user_interval_average_heart_rate(time, heart_rate, interval):
+def user_interval_average_heart_rate(email, interval):
     pass
+    user_info = User.object.raw({"_id": email}).first()
+    time_line = user_info.object.raw({"heart_rate_time" > interval})
+    size = len(time_line)
+    heart_rate = user_info.heart_rate
+    interval_heart_rate = heart_rate
+
