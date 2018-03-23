@@ -2,3 +2,4 @@ pymodm
 flask
 requests
 numpy
+ipython

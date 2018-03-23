@@ -35,3 +35,22 @@ def user_interval_average_heart_rate(email, interval):
     heart_rate = user_info.heart_rate
     interval_heart_rate = heart_rate
 
+def validate_input_interval(user_email, heart_rate_average_since):
+    if isinstance(user_email, str) and isinstance(heart_rate_average_since, str): 
+        indicator = True
+    else:
+        indicator = False
+    return indicator
+
+
+def validate_input_user(user_email, user_age, heart_rate):
+    if isinstance(user_email, str) and isinstance(user_age, int) and isinstance(heart_rate, int):
+        indicator = True
+    else:
+        indicator = False
+    return indicator
+
+
+
+
+
