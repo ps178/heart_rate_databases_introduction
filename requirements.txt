@@ -4,3 +4,4 @@ requests
 numpy
 ipython
 sphinx
+flask-cors

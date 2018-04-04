@@ -39,15 +39,25 @@ def user_heart_rate(email):
     """
     user = models.User.objects.raw({"_id": email}).first()
     user_all_heart_rate = user.heart_rate
-    return user_all_heart_rate
+    user_heart_rate_times = user.heart_rate_times
+    
+    user_heart_rate_info = {
+        "HR": user_all_heart_rate,
+        "HR times": user_heart_rate_times,
+    }
 
-def user_average_heart_rate(user_all_heart_rate):
+    return user_heart_rate_info
+
+def user_average_heart_rate(email):
     """ Function calculates the average HR of a specific user based on all the HR data for that user
  
-    :param user_all_heart_rate: All the heart rate values for a specific user provided by the user_heart_rate function.
+    :param email: user email
     :return average_heart_rate: the average HR for the user
 
     """
+
+    user = models.User.objects.raw({"_id": email}).first()
+    user_all_heart_rate = user.heart_rate
     average_heart_rate = np.mean(user_all_heart_rate)
     return average_heart_rate    
 

@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from pymodm import connect
 from pymodm import MongoModel, fields
 import models
@@ -9,6 +10,7 @@ import Parts
 connect("mongodb://vcm-3584.vm.duke.edu:27017/HR_Info")
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/api/heart_rate', methods=["POST"])
 def heart_rate():
@@ -33,8 +35,8 @@ def heart_rate_all(user_email):
 
 @app.route('/api/heart_rate/average/<user_email>', methods=["GET"])
 def average_heart_rate(user_email):
-    user_all_heart_rate = Parts.user_heart_rate(user_email)
-    average_heart_rate = Parts.user_average_heart_rate(user_all_heart_rate)
+
+    average_heart_rate = Parts.user_average_heart_rate(user_email)
     return jsonify(average_heart_rate)
 
 #@app.route('/api/heart_rate/interval_average', methods=["POST"])
