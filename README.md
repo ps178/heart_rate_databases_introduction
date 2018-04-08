@@ -2,7 +2,7 @@
 Starter codebase for BME590 Databases Assignment (which can be found [here](https://github.com/mlp6/Medical-Software-Design/blob/master/Lectures/databases/main.md#mini-projectassignment)). 
 
 # Brief Description
-This project is the back-end server for a [React JS application] (https://github.com/ps178/doctor-hr-frontend). This server uses docker to store databases in mongodb. In addition, this project uses Flask to set-up the serve. This server has three different routes;
+This project is the back-end server for a [React JS application](https://github.com/ps178/doctor-hr-frontend). This server uses docker to store databases in mongodb. In addition, this project uses Flask to set-up the serve. This server has three different routes;
 
 `/api/heart_rate` takes post requests and creates a new user with an associated user_email, user_age,and HR_data (the server attaches a time stamp to the HR data). If the user alreadys exists then the server will find the user via the primary key (user email) and append the new HR data (with time stamp for the new HR data) to the array of HR data for the user.
 
