@@ -52,4 +52,3 @@ FLASK_APP=Flask_Part.py flask run --host=0.0.0.0
 ```
 Now you are ready to send GET and POST requests to the server.
 
-# Screen-shot
